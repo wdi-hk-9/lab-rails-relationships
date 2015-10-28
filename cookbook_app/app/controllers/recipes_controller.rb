@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
 before_action :set_course
 
   def index
-    @recipe = @course.recipes
+    @recipes = @course.recipes
   end
 
   def show

@@ -5,12 +5,12 @@
 <table>
 
   <tbody>
-    <% courses.each do |course| %>
+    <% @courses.each do |course| %>
       <tr>
         <td><%= course.name %></td>
         <td><%= link_to 'Show', course_path(course) %></td>
         <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', course_path(course), method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
     <% end %>
   </tbody>
