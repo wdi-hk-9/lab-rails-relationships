@@ -1,0 +1,26 @@
+<%= form_for([@course, @recipe]) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :instructions %>
+    <%= f.text_field :instructions %>
+  </div>
+
+  <div>
+    <%= f.label :servings %>
+    <%= f.text_field :servings %>
+  </div>
+
+  <div>
+    <%= f.label :course_id %>
+    <%= f.text_field :course_id %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>
