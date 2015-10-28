@@ -1,8 +1,10 @@
 class RecipesController < ApplicationController
-before_action :set_course
-before_action :get_course_id, only: [:show, :edit, :update, :destroy]
+  before_action :set_course
+  before_action :get_course_id, only: [:show, :edit, :update, :destroy]
 
   def index
+    # you can inspect with pry here by uncommenting the next line
+    # binding.pry
     @recipe = @course.recipes
   end
 
