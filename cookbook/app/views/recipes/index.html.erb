@@ -1,0 +1,27 @@
+<h1><%= @course.name.capitalize %> Recipes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Instructions</th>
+      <th>Servings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.name %></td>
+        <td><%= recipe.instructions %></td>
+        <td><%= recipe.servings %></td>
+        <td><%= link_to 'Show', course_recipe_path(recipe.course_id, recipe.id) %></td>
+        <td><%= link_to 'Edit', edit_course_recipe_path(recipe.course_id, recipe.id) %></td>
+        <td><%= link_to 'Destroy', course_recipe_path(recipe.course_id, recipe.id), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recipe', new_course_recipe_path %>
