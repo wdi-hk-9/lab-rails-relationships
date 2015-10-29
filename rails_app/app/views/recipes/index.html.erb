@@ -1,0 +1,18 @@
+<h1> Recipes for <%= @course.name %></h1>
+
+<table id="recipe">
+
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td class="content"><%= recipe.name %></td>
+        <td><%= link_to "show", course_recipe_path(recipe.course_id, recipe.id) %></td>
+        <td><%= link_to "edit", edit_course_recipe_path(recipe.course_id, recipe.id) %></td>
+        <td><%= link_to "destroy", course_recipe_path(recipe.course_id, recipe.id), method: :delete, data: {confirm: 'are you sure?'}%></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<%= link_to "Add New Recipe", new_course_recipe_path %>
