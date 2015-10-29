@@ -1,5 +1,12 @@
-<h1>Course</h1>
+ <h1>Course</h1>
 
-<h2><%= @course.name %></h2>
+  <h2><%= @course.name %></h2>
+  <h3>Recipes</h3>
+  <ul>
+    <% @course.recipes.each do |recipe| %>
+      <li><%= link_to recipe.name, course_recipes_path(recipe.course_id, recipe.id) %></li>
+     <% end %>
+  </ul>
 
-<%= link_to 'Back', courses_path %>
+
+  <%= link_to 'Back', courses_path %>
