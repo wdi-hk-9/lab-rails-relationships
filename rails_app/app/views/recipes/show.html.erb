@@ -1,0 +1,10 @@
+<h1> Show. html</h1>
+
+<p>
+  <strong>Recipe Name:</strong>
+  <%= @recipe.name %>
+</p>
+
+<%= link_to "edit", edit_course_recipe_path(@recipe.course_id, @recipe.id) %> |
+
+<%= link_to 'See all Recipes', course_recipes_path %>

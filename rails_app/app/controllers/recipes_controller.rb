@@ -1,9 +1,16 @@
 class RecipesController < ApplicationController
-before_action :set_course
-before_action :get_course_id, only: [:show, :edit, :update, :destroy]
+  before_action :set_course
+  before_action :get_recipe_id, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipe = @course.recipes
+    # binding.pry
+    @recipes = @course.recipes
+    # if @recipes.course_id == null
+    #   redirect_to course_url
+    # elsif @recipes.course_id != null
+    #   redirect_to course_recipes_url
+    # end
+
   end
 
   def show
@@ -17,20 +24,20 @@ before_action :get_course_id, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    @recipe = @course.recipes.new(course_params)
+    @recipe = @course.recipes.new(recipe_params)
     if @recipe.save
-      redirect_to course_recipes_url
+      redirect_to course_recipe_path(@recipe.course_id, @recipe.id)
     end
   end
 
   def update
-    @recipe.update(course_params)
-    redirect_to course_recipes_url
+    @recipe.update(recipe_params)
+    redirect_to course_recipe_path(@recipe.course_id, @recipe.id)
   end
 
   def destroy
     @recipe.destroy
-    redirect_to course_recipes_url
+    redirect_to course_recipes_path(@recipe.course_id)
   end
 
   private
@@ -42,8 +49,8 @@ before_action :get_course_id, only: [:show, :edit, :update, :destroy]
     @recipe = @course.recipes.find(params[:id])
   end
 
-  def course_params
-    params.require(:recipes).permit(:name, :description, :servings)
+  def recipe_params
+    params.require(:recipe).permit(:id, :name, :description, :servings, :course_id)
   end
 
 end

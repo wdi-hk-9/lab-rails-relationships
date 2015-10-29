@@ -6,4 +6,12 @@
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 
-<%= link_to 'See all Courses', courses_path %>
+<%= link_to 'See all Courses', courses_path %> |
+
+<h3> Recipes</h3>
+
+<ul>
+  <% @course.recipes.each do |recipe| %>
+    <li><%= link_to recipe.name, course_recipes_path(recipe.course_id, recipe.id) %></li>
+   <% end %>
+</ul>
