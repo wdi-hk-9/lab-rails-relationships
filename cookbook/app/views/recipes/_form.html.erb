@@ -1,11 +1,11 @@
-<%= form_for(@course, @recipe) do |f| %>
+<%= form_for([@recipe.course, @recipe]) do |f| %>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-    <%= f.label :instruction %><br>
-    <%= f.text_field :instruction %>
-    <%= f.label :serving %><br>
-    <%= f.text_field :serving %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %><br>
+    <%= f.label :instructions %><br>
+    <%= f.text_field :instructions %><br>
+    <%= f.label :servings %><br>
+    <%= f.text_field :servings %><br>
   </div>
 
   <div class="actions">

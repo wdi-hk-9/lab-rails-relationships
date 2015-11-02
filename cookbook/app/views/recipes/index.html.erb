@@ -4,9 +4,9 @@
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
-        <td class="content>"><%= recipe.name %></td>
-        <td><%= recipe.instruction %></td>
-        <td><%= recipe.serving %></td>
+        <td class="content>"><%= recipe.title %></td>
+        <td><%= recipe.instructions %></td>
+        <td><%= recipe.servings %></td>
         <td><%= link_to "Show", course_recipe_path(recipe) %></td>
         <td><%= link_to "Edit", edit_course_recipe_path(recipe) %></td>
         <td><%= link_to "Destroy", course_recipe_path(recipe), method: :delete, data: {confirm: 'Are you sure?'} %></td>

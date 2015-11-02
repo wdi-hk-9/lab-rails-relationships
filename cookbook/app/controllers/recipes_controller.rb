@@ -14,15 +14,13 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = @course.recipes.new(recipe_params)
-    if @recipe.save
-      redirect_to course_recipe_url
-    end
+    @recipe = Recipe.create(recipe_params)
+      redirect_to course_recipes_path
   end
 
   def update
     if @recipe.update(recipe_params)
-      redirect_to course_recipe_path
+      redirect_to @recipe
     end
   end
 
@@ -37,6 +35,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-      params.require(:recipe).permit(:name, :instruction, :serving, :course_id)
+      params.require(:recipe).permit(:title, :instructions, :servings, :course_id)
     end
 end
